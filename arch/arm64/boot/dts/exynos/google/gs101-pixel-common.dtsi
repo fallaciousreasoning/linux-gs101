@@ -293,15 +293,17 @@
 			};
 
 			ldo25m_reg: ldo25m {
-				/* touch */
-				compatible = "regulator-fixed";
+				/* touch - PP1800_L25M_TSP_DVDD */
 				regulator-name = "touch-dvdd";
+				regulator-min-microvolt = <1800000>;
+				regulator-max-microvolt = <1800000>;
 			};
 
 			ldo26m_reg: ldo26m {
-				/* touch */
-				compatible = "regulator-fixed";
+				/* touch - PP3300_L26M_TS_AVDD */
 				regulator-name = "touch-avdd";
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
 			};
 
 			ldo27m {
@@ -790,9 +792,18 @@
 		status = "okay";
 		spi-max-frequency = <10000000>;
 		reg = <0>;
-		pinctrl-names = "ts_active";
+		interrupt-parent = <&gpa9>;
+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend";
 		pinctrl-0 = <&ts_irq &ts_reset &ap2aoc &aoc2ap_irq
 			     &spi11_bus &spi11_cs>;
+		pinctrl-1 = <&ts_irq &ts_reset &ap2aoc &aoc2ap_irq
+			     &spi11_bus &spi11_cs>;
+		fts,irq-gpio = <&gpa9 0 GPIO_ACTIVE_LOW>;
+		fts,reset-gpio-enable;
+		fts,reset-gpio = <&gpp26 0 GPIO_ACTIVE_LOW>;
+		fts,irq-flags = <0x2002>; /* IRQF_ONESHOT | IRQF_TRIGGER_LOW */
+		fts,config-array-size = <0>;
 		vdd-supply = <&ldo25m_reg>;
 		avdd-supply = <&ldo26m_reg>;
 	};

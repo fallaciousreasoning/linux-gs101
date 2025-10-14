@@ -32,4 +32,9 @@
 	st,max-coords = <1079 2399>;
 	st,udfps-coords = <540 1717>;
 	st,touch_offload_id = /bits/ 8 <'0' '0' 'b' '3'>;
+
+	/* Required properties for fts driver */
+	fts,x-max = <1079>;
+	fts,y-max = <2399>;
+	fts,default-fw-name = "ftm5_fw_b3.ftb";
 };

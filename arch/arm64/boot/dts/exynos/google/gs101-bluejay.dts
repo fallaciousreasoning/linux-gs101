@@ -36,5 +36,5 @@
 	/* Required properties for fts driver */
 	fts,x-max = <1079>;
 	fts,y-max = <2399>;
-	fts,default-fw-name = "ftm5_fw_b3.ftb";
+	fts,default-fw-name = "postmarketos/ftm5_fw_b3.ftb";
 };

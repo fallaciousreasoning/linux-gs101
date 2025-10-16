@@ -297,6 +297,8 @@
 				regulator-name = "touch-dvdd";
 				regulator-min-microvolt = <1800000>;
 				regulator-max-microvolt = <1800000>;
+				regulator-boot-on;
+				regulator-always-on;
 			};
 
 			ldo26m_reg: ldo26m {
@@ -304,6 +306,8 @@
 				regulator-name = "touch-avdd";
 				regulator-min-microvolt = <3300000>;
 				regulator-max-microvolt = <3300000>;
+				regulator-boot-on;
+				regulator-always-on;
 			};
 
 			ldo27m {
@@ -777,7 +781,7 @@
 
 &watchdog_cl0 {
 	timeout-sec = <30>;
-	status = "okay";
+	status = "disabled";
 };
 
 &spi_11 {

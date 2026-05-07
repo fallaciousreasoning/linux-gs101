@@ -387,6 +387,19 @@ config PCI_EXYNOS
 	  hardware and therefore the driver re-uses the DesignWare core
 	  functions to implement the driver.
 
+config PCI_EXYNOS_GS
+	tristate "Samsung Exynos PCIe root controller"
+	depends on PCI
+	depends on OF
+	select PCIEPORTBUS
+	select PCIE_DW_HOST
+
+config PCI_EXYNOS_CAL_GS101
+	tristate "Samsung Exynos PCIe PHY CAL for GS101"
+	depends on PCI
+	depends on OF
+	select PCIE_DW_HOST
+
 config PCIE_FU740
 	bool "SiFive FU740 PCIe controller"
 	depends on PCI_MSI

@@ -7,6 +7,13 @@ obj-$(CONFIG_PCIE_DW_PLAT) += pcie-designware-plat.o
 obj-$(CONFIG_PCIE_AMD_MDB) += pcie-amd-mdb.o
 obj-$(CONFIG_PCIE_BT1) += pcie-bt1.o
 obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
+CFLAGS_pcie-exynos-gs101-rc-cal.o += -Wno-error
+CFLAGS_pcie-exynos-gs201-rc-cal.o += -Wno-error
+CFLAGS_pcie-exynos-rc.o += -Wno-error
+
+obj-$(CONFIG_PCI_EXYNOS_GS) += pcie-exynos-gs.o
+pcie-exynos-gs-objs += pcie-exynos-rc.o pcie-exynos-dbg.o
+obj-$(CONFIG_PCI_EXYNOS_CAL_GS101) += pcie-exynos-gs101-rc-cal.o
 obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
 obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
 obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
